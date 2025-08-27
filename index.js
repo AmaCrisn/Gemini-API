@@ -1,7 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
 import multer from 'multer';
-import fs from 'fs/promises';
 import { GoogleGenAI } from '@google/genai';
 
 const app = express();

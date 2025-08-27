@@ -32,6 +32,7 @@ RESTful API endpoints for easy integration.
 
 API Endpoints
 - POST /generate-text
+
 Generate response from a text prompt.
 Body (JSON):
 {
@@ -39,23 +40,27 @@ Body (JSON):
 }
 
 - POST /generate-from-image
+
 Generate response using a text prompt and an uploaded image.
 Form Data:
 image: The image file (e.g., PNG, JPG)
 prompt: Text prompt
 
 - POST /generate-from-document
+
 Generate response using a document and optional prompt.
 Form Data:
 document: PDF or DOCX file
 prompt: Text prompt
 
 - POST /generate-from-document
+
 Generate response using a document and optional prompt.
 Form Data:
 document: PDF or DOCX file
 
 - POST /generate-from-audio
+
 Generate transcript or response from an audio file.
 Form Data:
 audio: MP3 or WAV file

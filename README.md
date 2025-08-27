@@ -47,7 +47,7 @@ Generate response using a text prompt and an uploaded image.
 
 Form Data:
 
-image: The image file (e.g., PNG, JPG)
+image: The image file (e.g., PNG, JPG),
 
 prompt: Text prompt
 
@@ -58,7 +58,7 @@ Generate response using a document and optional prompt.
 
 Form Data:
 
-document: PDF or DOCX file
+document: PDF or DOCX file,
 
 prompt: Text prompt
 

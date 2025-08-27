@@ -29,7 +29,7 @@ function extractText(resp) {
     }
 }
 
-// Generate Text
+// Generate with text
 app.post('/generate-text', async (req, res) => {
     try {
         const { prompt } = req.body;
@@ -43,7 +43,7 @@ app.post('/generate-text', async (req, res) => {
     }
 });
 
-// Generate Image
+// Generate with image
 app.post('/generate-from-image', upload.single('image'), async (req, res) => {
     try {
         const { prompt } = req.body;
@@ -80,3 +80,20 @@ app.post('/generate-from-document', upload.single('document'), async (req, res) 
 })
 
 // Generate with audio
+app.post('/generate-from-audio', upload.single('audio'), async (req, res) => {
+    try {
+        const { prompt } = req.body;
+        const audioBase64 = req.file.buffer.toString('base64');
+        const resp = await ai.models.generateContent({
+            model: GEMINI_MODEL,
+            contents: [
+                { text: prompt || "Transkrip audio berikut:" },
+                { inlineData: { mimeType: req.file.mimetype, data: audioBase64 } }
+            ]
+        });
+        res.json({ result: extractText(resp) });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+})
+
